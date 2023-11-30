@@ -32,7 +32,8 @@ class _HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Obtener el selectedMenuOpt del provider
-    final uiProvider = Provider.of<UiProvider>(context);
+    final uiProvider = Provider.of<UiProvider>(
+        context); //obtener el provider de la clase UiProvider
 
     // Cambiar para mostrar la página respectiva
     final currentIndex = uiProvider.selectedMenuOpt;

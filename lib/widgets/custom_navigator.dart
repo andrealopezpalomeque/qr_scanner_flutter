@@ -7,7 +7,8 @@ class CustomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final uiProvider = Provider.of<UiProvider>(context);
+    final uiProvider = Provider.of<UiProvider>(
+        context); //obtener el provider de la clase UiProvider
 
     final currentIndex = uiProvider.selectedMenuOpt;
 
