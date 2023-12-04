@@ -60,4 +60,10 @@ class DBProvider {
 
     return res; //! id del ultimo registro insertado
   }
+
+  Future<ScanModel?> getScanById(int id) async {
+    final db = await database; //! verificar la base de datos
+    final res = await db!.query('Scans', where: 'id = ?', whereArgs: [id]);
+    return res.isNotEmpty ? ScanModel.fromJson(res.first) : null;
+  }
 }
