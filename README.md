@@ -1,16 +1,58 @@
-# qr_scanner
+# Project Name
 
-A new Flutter project.
+QR Scanner is a Flutter application that allows users to scan QR codes using their mobile devices.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Scan QR codes using the device's camera
+- Store scanned QR codes in SQLite database
+- Open URLs from scanned QR codes
+- Save scanned QR codes for future reference, displaying them in a list across the app
+- Use Provider as a state management solution
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Clone the repository: `git clone https://github.com/your-username/your-project.git`
+2. Navigate to the project directory: `cd your-project`
+3. Install dependencies: `flutter pub get`
+4. Run the application: `flutter run`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## State Management
+
+This project utilizes the Provider package as the state management solution. The Provider package allows for efficient and easy management of application state. Learn more about Provider here: [Provider Package](https://pub.dev/packages/provider)
+
+## Database
+
+The project uses the SQLite database for storing and retrieving scanned QR codes. SQLite is a lightweight and reliable database solution for Flutter applications. Learn more about SQLite here: [SQLite Flutter Package](https://pub.dev/packages/sqflite)
+
+## Usage
+
+1. Launch the application on your mobile device or emulator.
+2. Grant camera permissions to the application.
+3. Point the camera towards a QR code to start scanning.
+4. The application will display the content of the scanned QR code.
+5. Scanned QR codes are stored in the SQLite database for future reference.
+
+## Screenshots
+
+![Screenshoot](assets/screenshot_qr_app_flutter.png)
+
+## Contributing
+
+Contributions are welcome! If you find any bugs or want to enhance the application, feel free to open an issue or submit a pull request.
+
+## Authors
+
+- [Your Name](https://github.com/your-username)
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Acknowledgments
+
+- [QR Code Flutter Package](https://pub.dev/packages/qr_flutter)
+- [Provider Package](https://pub.dev/packages/provider)
+- [SQLite Flutter Package](https://pub.dev/packages/sqflite)
+
+Feel free to customize this template according to your specific project details and requirements.
