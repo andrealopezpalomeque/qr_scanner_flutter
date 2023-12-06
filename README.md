@@ -10,13 +10,6 @@ QR Scanner is a Flutter application that allows users to scan QR codes using the
 - Save scanned QR codes for future reference, displaying them in a list across the app
 - Use Provider as a state management solution
 
-## Installation
-
-1. Clone the repository: `git clone https://github.com/your-username/your-project.git`
-2. Navigate to the project directory: `cd your-project`
-3. Install dependencies: `flutter pub get`
-4. Run the application: `flutter run`
-
 ## State Management
 
 This project utilizes the Provider package as the state management solution. The Provider package allows for efficient and easy management of application state. Learn more about Provider here: [Provider Package](https://pub.dev/packages/provider)
