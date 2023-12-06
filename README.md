@@ -1,4 +1,4 @@
-# Project Name
+# QR Scanner Flutter
 
 QR Scanner is a Flutter application that allows users to scan QR codes using their mobile devices.
 
@@ -35,24 +35,8 @@ The project uses the SQLite database for storing and retrieving scanned QR codes
 
 ## Screenshots
 
-![Screenshoot](assets/screenshot_qr_app_flutter.png)
+<img src="assets/screenshot_qr_app_flutter.png" alt="Screenshot 1" width="400" height="800">
 
 ## Contributing
 
 Contributions are welcome! If you find any bugs or want to enhance the application, feel free to open an issue or submit a pull request.
-
-## Authors
-
-- [Your Name](https://github.com/your-username)
-
-## License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-## Acknowledgments
-
-- [QR Code Flutter Package](https://pub.dev/packages/qr_flutter)
-- [Provider Package](https://pub.dev/packages/provider)
-- [SQLite Flutter Package](https://pub.dev/packages/sqflite)
-
-Feel free to customize this template according to your specific project details and requirements.
