@@ -35,8 +35,17 @@ The project uses the SQLite database for storing and retrieving scanned QR codes
 
 ## Screenshots
 
+## Screenshots
+
+### Main Screen
+
+The main screen of the application displays a list of scanned URLs and geo localizations. Each entry in the list is differentiated based on whether it represents a HTTP URL or a geo localization.
+
 <img src="assets/screenshot_qr_app_flutter.png" alt="Screenshot 1" width="400" height="800">
 
-## Contributing
+- HTTP URLs are shown with a website icon and the full URL is displayed.
+- Geo localizations are indicated with a map icon and the latitude and longitude coordinates are presented.
 
-Contributions are welcome! If you find any bugs or want to enhance the application, feel free to open an issue or submit a pull request.
+Users have the option to delete all entries by tapping the delete icon located at the top of the screen. Additionally, each entry can be individually deleted by swiping it to the left or right.
+
+This intuitive interface allows users to easily manage their scanned URLs and geo localizations.
