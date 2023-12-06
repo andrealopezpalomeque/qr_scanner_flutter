@@ -28,8 +28,6 @@ The project uses the SQLite database for storing and retrieving scanned QR codes
 
 ## Screenshots
 
-## Screenshots
-
 ### Main Screen
 
 The main screen of the application displays a list of scanned URLs and geo localizations. Each entry in the list is differentiated based on whether it represents a HTTP URL or a geo localization.
