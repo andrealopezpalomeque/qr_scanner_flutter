@@ -4,6 +4,7 @@ import 'package:qr_scanner/models/scan_model.dart';
 import 'package:qr_scanner/pages/direcciones_page.dart';
 import 'package:qr_scanner/pages/mapas_page.dart';
 import 'package:qr_scanner/providers/db_providers.dart';
+import 'package:qr_scanner/providers/scan_list_provider.dart';
 import 'package:qr_scanner/providers/ui_provider.dart';
 import 'package:qr_scanner/widgets/custom_navigator.dart';
 import 'package:qr_scanner/widgets/scan_button.dart';
@@ -40,14 +41,24 @@ class _HomePageBody extends StatelessWidget {
     // Cambiar para mostrar la página respectiva
     final currentIndex = uiProvider.selectedMenuOpt;
 
-    //!temporal: leer la base de datos
-    final tempScan = ScanModel(valor: 'http://google.com');
-    DBProvider.db.nuevoScan(tempScan);
+    //!temporal: LEER la base de datos
+    //final tempScan = ScanModel(valor: 'http://google.com');
+    //DBProvider.db.nuevoScan(tempScan);
+
+    //DBProvider.db.getScanById(29).then((scan) => print(scan!.valor));
+
+    //DBProvider.db.getTodosScans().then(print);
+
+    // ? USAR SCANLISTPROVIDER
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
 
     switch (currentIndex) {
       case 0:
+        scanListProvider.cargarScanPorTipo('geo');
         return const MapasPage();
       case 1:
+        scanListProvider.cargarScanPorTipo('http');
         return const DireccionesPage();
       default:
         return const MapasPage();

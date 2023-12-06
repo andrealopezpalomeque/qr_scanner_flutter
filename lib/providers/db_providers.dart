@@ -22,7 +22,6 @@ class DBProvider {
         await getApplicationDocumentsDirectory(); //! obtiene el directorio de la aplicacion
     final path = join(documentsDirectory.path,
         'ScansDB.db'); //! une el path con el nombre de la base de datos
-
     //! creacion de la base de datos
     return await openDatabase(path, version: 1, onOpen: (db) {},
         onCreate: (Database db, int version) async {
@@ -37,6 +36,7 @@ class DBProvider {
     });
   }
 
+// insertar registros en la base de datos // ! (1ra forma)
   Future<int> nuevoScanRaw(ScanModel nuevoScan) async {
     final id = nuevoScan.id;
     final tipo = nuevoScan.tipo;
@@ -44,7 +44,7 @@ class DBProvider {
 
     //! verificar la base de datos
     final db = await database;
-
+    // ! insertar
     final res = await db!.rawInsert('''
       INSERT INTO Scans(id, tipo, valor)
         VALUES($id, '$tipo', '$valor')
@@ -52,18 +52,69 @@ class DBProvider {
     return res;
   }
 
+// insertar registros en la base de datos // ! (2da forma)
   Future<int> nuevoScan(ScanModel nuevoScan) async {
     final db = await database; //! verificar la base de datos
     final res = await db!
         .insert('Scans', nuevoScan.toJson()); //! insertar en la base de datos
-    print(res);
 
-    return res; //! id del ultimo registro insertado
+    return res; //? id del ultimo registro insertado
   }
 
+// obtener por id
   Future<ScanModel?> getScanById(int id) async {
     final db = await database; //! verificar la base de datos
     final res = await db!.query('Scans', where: 'id = ?', whereArgs: [id]);
-    return res.isNotEmpty ? ScanModel.fromJson(res.first) : null;
+    return res.isNotEmpty // chequeo si esta vacio
+        ? ScanModel.fromJson(res.first) // primer elemento de la lista
+        : null;
+  }
+
+  //obtener todos los scans
+  Future<List<ScanModel>> getTodosScans() async {
+    final db = await database; //! verificar la base de datos
+    final res = await db!.query('Scans');
+    return res.isNotEmpty // chequeo si esta vacio
+        ? res
+            .map((s) => ScanModel.fromJson(s))
+            .toList() // primer elemento de la lista
+        : [];
+  }
+
+  //obtener todos los scans por tipo
+  Future<List<ScanModel>> getScansPorTipo(String tipo) async {
+    final db = await database; //! verificar la base de datos
+    final res = await db!.rawQuery('''
+      SELECT * FROM Scans WHERE tipo = '$tipo'
+    ''');
+    return res.isNotEmpty // chequeo si esta vacio
+        ? res
+            .map((s) => ScanModel.fromJson(s))
+            .toList() // primer elemento de la lista
+        : [];
+  }
+
+  //actualizar registros
+  Future<int> updateScan(ScanModel nuevoScan) async {
+    final db = await database; //! verificar la base de datos
+    final res = await db!.update('Scans', nuevoScan.toJson(),
+        where: 'id = ?', whereArgs: [nuevoScan.id]);
+    return res;
+  }
+
+  //eliminar registro
+  Future<int> deleteScan(int id) async {
+    final db = await database; //! verificar la base de datos
+    final res = await db!.delete('Scans', where: 'id = ?', whereArgs: [id]);
+    return res;
+  }
+
+  //eliminar todos los registros
+  Future<int> deleteAllScans() async {
+    final db = await database; //! verificar la base de datos
+    final res = await db!.rawDelete('''
+      DELETE FROM Scans
+    ''');
+    return res;
   }
 }
